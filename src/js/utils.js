@@ -52,7 +52,7 @@ export function renderListWithTemplate(template, parent, list, callback) {
 export function renderWithTemplate(template, parent, data, callback) {
   //const template = document.getElementById("product-card-template");
  
-  const clone = template.content.cloneNode(true);
+  let clone = template.content.cloneNode(true);
   if(callback){
     clone = callback(clone, data);
   }
