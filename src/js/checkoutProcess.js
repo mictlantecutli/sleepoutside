@@ -1,3 +1,6 @@
+import { getLocalStorage } from "./utils";
+
+
 export default class CheckoutProcess {
   constructor(key, outputSelector) {
     this.key = key;
@@ -51,7 +54,8 @@ export default class CheckoutProcess {
     shipping.innerText = '$' + this.shipping;
     tax.innerText = '$' + this.tax;
     orderTotal.innerText = '$' + this.orderTotal;
-  
   }
+
+
   
 }
