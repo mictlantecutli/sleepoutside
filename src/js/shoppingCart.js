@@ -4,10 +4,12 @@ export default class ShoppingCart {
   constructor(key, listElement) {
     this.key = key;
     this.listElement = listElement;
+    this.total = 0;
   }
 
   async init() {
     const list = getLocalStorage(this.key);
+    this.calculateTotalAmount(list)
     this.renderList(list);
  
   }
@@ -23,6 +25,12 @@ export default class ShoppingCart {
     return template;
   }
 
+  calculateTotalAmount(list){
+    const amounts = list.map((item)=> item.FinalPrice);
+    console.log(amounts);
+    this.total = amounts.reduce((sum, item) => sum + item);
+  }
+
   renderList(list) {
     this.listElement.innerHTML = "";
     const template = document.getElementById("cart-card-template");
@@ -32,5 +40,6 @@ export default class ShoppingCart {
       list,
       this.prepareTemplate
     );
+    document.querySelector(".list-total").innerText += ` $${this.total}`;
   }
 }

@@ -264,3 +264,43 @@ footer {
 .grid-categories h2 {
   font-size: 20px;
 }
+
+/*code for shopping cart page*/
+
+.list-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.list-footer>a {
+  text-decoration: none;
+  background-color: #f0a868;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+.list-total {
+  text-align: right;
+
+}
+
+/*The style for the form*/
+form label {
+  display: block;
+}
+
+form input {
+  width: 100%;
+}
+
+.checkout_summary ul {
+  list-style-type: none;
+}
+
+.checkout_summary ul li {
+  display: flex;
+  justify-content: space-between;
+
+}
