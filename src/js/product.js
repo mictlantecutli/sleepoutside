@@ -1,23 +1,18 @@
-import ProductData from './productData.js';
-import ProductDetails from './productDetails.js';
+import ProductData from "./productData.js";
+import ProductDetails from "./productDetails.js";
 
-import { getParams } from './utils.js';
+import { getParams } from "./utils.js";
 
+const dataSource = new ProductData("tents");
 
+//console.log(dataSource.getData());
 
-const dataSource = new ProductData('tents');
-
-const productId = getParams('product');
-
+const productId = getParams("product");
 
 const product = new ProductDetails(productId, dataSource);
 product.init();
 
-
-
-console.log(dataSource.findProductById(productId));
-
-
+//console.log(dataSource.findProductById(productId));
 
 //console.log(dataTents.getData());
 //let products = [];
@@ -49,7 +44,6 @@ console.log(dataSource.findProductById(productId));
 // async function getProductsDataAwait() {
 //   products = await fetch("../json/tents.json").then(convertToJson);
 // }
-
 
 // add to cart button event handler
 //function addToCart(e) {

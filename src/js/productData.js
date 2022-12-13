@@ -7,23 +7,23 @@ function convertToJson(res) {
 }
 
 export default class ProductData {
-  constructor(category){
+  constructor(category) {
     this.category = category;
     this.path = `../json/${this.category}.json`;
-
   }
 
-
-  getData(){
-    return fetch(this.path).then(convertToJson).then(function(data) { return data; });
-  
+  getData() {
+    return fetch(this.path)
+      .then(convertToJson)
+      .then(function (data) {
+        return data;
+      });
   }
 
-
-  async findProductById(id){
+  async findProductById(id) {
     const products = await this.getData();
-    return products.find(function(item) { return item.Id === id; });
-
+    return products.find(function (item) {
+      return item.Id === id;
+    });
   }
-
 }

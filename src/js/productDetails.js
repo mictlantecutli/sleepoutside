@@ -1,7 +1,7 @@
-import { setLocalStorage } from './utils.js'; 
+import { setLocalStorage } from "./utils.js";
 
 export default class ProductDetails {
-  constructor(productId, dataSource){
+  constructor(productId, dataSource) {
     this.productId = productId;
     this.product = {};
     this.dataSource = dataSource;
@@ -12,19 +12,20 @@ export default class ProductDetails {
     this.product = await this.dataSource.findProductById(this.productId);
 
     // once we have the product details we can render out the HTML
-    document.querySelector('main').innerHTML = this.renderProductDetails();
+    document.querySelector("main").innerHTML = this.renderProductDetails();
 
     // once the HTML is rendered we can add a listener to Add to Cart button
     // Notice the .bind(this). Our callback will not work if we don't include that line. Review the readings from this week on 'this' to understand why.
-    document.getElementById('addToCart')
-            .addEventListener('click', this.addToCart.bind(this));
+    document
+      .getElementById("addToCart")
+      .addEventListener("click", this.addToCart.bind(this));
   }
 
-  addToCart(){
-    setLocalStorage('so-cart', this.product);
+  addToCart() {
+    setLocalStorage("so-cart", this.product);
   }
 
-  renderProductDetails(){
+  renderProductDetails() {
     return `<section class="product-detail"> <h3>${this.product.Brand.Name}</h3>
     <h2 class="divider">${this.product.NameWithoutBrand}</h2>
     <img
@@ -41,7 +42,4 @@ export default class ProductDetails {
       <button id="addToCart" data-id="${this.product.Id}">Add to Cart</button>
     </div></section>`;
   }
-
-
-  
 }

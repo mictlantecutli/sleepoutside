@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sleep Outside | Home</title>
     <link rel="stylesheet" href="css/style.css" />
+    <!--This part is for the html template-->
+    <template id="product-card-template">
+      <li class="product-card">
+        <a href="product_pages/product-details.html?product=">
+          <img src="" alt="Image of " />
+          <h3 class="card__brand"></h3>
+          <h2 class="card__name"></h2>
+          <p class="product-card__price">$</p>
+        </a>
+      </li>
+    </template>
+
+    <script src="js/main.js" type="module"></script>
   </head>
   <body>
     <header class="divider">
@@ -76,7 +89,7 @@
             >
           </li>
           <li class="product-card">
-            <a href= "product_pages/product-details.html?product=989CG">
+            <a href="product_pages/product-details.html?product=989CG">
               <img
                 src="images/tents/the-north-face-talus-tent-4-person-3-season-in-golden-oak-saffron-yellow~p~985rf_01~320.jpg"
                 alt="Talus Tent - 4-Person, 3-Season"
