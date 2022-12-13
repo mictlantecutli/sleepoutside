@@ -1,18 +1,35 @@
-import { setLocalStorage } from "./utils.mjs";
-import ProductData from "./ProductData.mjs";
+let products = [];
+function convertToJson(res) {
+  if (res.ok) {
+    return res.json();
+  } else {
+    throw new Error("Bad Response");
+  }
+}
 
-const dataSource = new ProductData("tents");
+function setLocalStorage(key, data) {
+  localStorage.setItem(key, JSON.stringify(data));
+}
 
-function addProductToCart(product) {
+// get tents data
+function getProductsData() {
+  fetch("../json/tents.json")
+    .then(convertToJson)
+    .then((data) => {
+      products = data;
+    });
+}
+// or should we do it this way?
+// async function getProductsDataAwait() {
+//   products = await fetch("../json/tents.json").then(convertToJson);
+// }
+
+// add to cart button event handler
+function addToCart(e) {
+  const product = products.find((item) => item.Id === e.target.dataset.id);
   setLocalStorage("so-cart", product);
 }
-// add to cart button event handler
-async function addToCartHandler(e) {
-  const product = await dataSource.findProductById(e.target.dataset.id);
-  addProductToCart(product);
-}
 
+getProductsData();
 // add listener to Add to Cart button
-document
-  .getElementById("addToCart")
-  .addEventListener("click", addToCartHandler);
+document.getElementById("addToCart").addEventListener("click", addToCart);
