@@ -1,13 +1,15 @@
-import ProductData from "./productData.js";
+import ExternalServices from "./externalServices.js";
 import ProductDetails from "./productDetails.js";
 
 import { getParams } from "./utils.js";
 
-const dataSource = new ProductData("tents");
+
 
 //console.log(dataSource.getData());
 
 const productId = getParams("product");
+
+const dataSource = new ExternalServices();
 
 const product = new ProductDetails(productId, dataSource);
 product.init();
@@ -17,7 +19,7 @@ product.init();
 //console.log(dataTents.getData());
 //let products = [];
 
-//THIS FUNCTION I COPIED IN productData.js, it is to filter one json file
+//THIS FUNCTION I COPIED IN .js, it is to filter one json file
 //function convertToJson(res) {
 // if (res.ok) {
 //    return res.json();
@@ -31,7 +33,7 @@ product.init();
 //  localStorage.setItem(key, JSON.stringify(data));
 //}
 
-//THE FOLLOWING CODE WAS COPIED IN productData.js file. It is to get the data of every tent product.
+//THE FOLLOWING CODE WAS COPIED IN .js file. It is to get the data of every tent product.
 // get tents data
 //function getProductsData() {
 //  fetch("../json/tents.json")
