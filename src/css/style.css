@@ -261,9 +261,20 @@ footer {
   padding: 10px;
 }
 
+.grid-categories li img {
+  width: 180px;
+
+}
+
 .grid-categories h2 {
   font-size: 20px;
 }
+
+.grid-categories li a {
+  text-decoration: none;
+}
+
+
 
 /*code for shopping cart page*/
 
